@@ -54,7 +54,7 @@ class Scrape:
     """
     Class with methods to scrape the website.
     """
-    def __init__(self, webdriver) -> None:
+    def __init__(self, webdriver=None) -> None:
         """
         The attributes:
         
