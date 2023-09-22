@@ -1,4 +1,5 @@
 from time import sleep
+import requests
 from selenium import webdriver
 from selenium.webdriver.remote.webelement import WebElement
 # from selenium.webdriver.chrome.service import Service
@@ -38,11 +39,13 @@ class Webdriver:
             return webdriver.Chrome()
 
 class Soup:
-    def __init__(self, page_source) -> None:
-        self.source = page_source
+    def __init__(self, url) -> None:
+        self.url = url
     
     def get_soup(self):
-        soup = BeautifulSoup(self.source, 'html.parser')
+        response = requests.get(self.url)
+        html = response.text
+        soup = BeautifulSoup(html, 'html.parser')
 
         return soup
 
@@ -175,6 +178,8 @@ class Scrape:
                 pass
             
         return only_selected_elements
+
+
 
 
 
