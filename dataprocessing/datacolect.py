@@ -44,8 +44,12 @@ class Soup:
         self.url = url
     
     def get_soup(self):
+        headers = {
+            "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+             "(KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36")
+        }
         try:
-            req = Request(self.url)
+            req = Request(self.url, headers=headers)
             response = urlopen(req)
             html = response.read().decode('utf-8')
             soup = BeautifulSoup(html, 'html.parser')
