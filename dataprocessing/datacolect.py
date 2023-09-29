@@ -1,5 +1,6 @@
 from time import sleep
-import requests
+from urllib.request import urlopen, Request
+from urllib.error import HTTPError, URLError
 from selenium import webdriver
 from selenium.webdriver.remote.webelement import WebElement
 # from selenium.webdriver.chrome.service import Service
@@ -43,9 +44,15 @@ class Soup:
         self.url = url
     
     def get_soup(self):
-        response = requests.get(self.url)
-        html = response.text
-        soup = BeautifulSoup(html, 'html.parser')
+        try:
+            req = Request(self.url)
+            response = urlopen(req)
+            html = response.read().decode('utf-8')
+            soup = BeautifulSoup(html, 'html.parser')
+        except HTTPError as e:
+            print(e.status, e.reason)
+        except URLError as e:
+            print(e.reason)
 
         return soup
 
