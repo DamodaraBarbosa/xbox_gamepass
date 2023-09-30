@@ -16,7 +16,7 @@ autor = 'Damodara Barbosa'
 email_autor = 'damodarabarbosa@gmail.com'
 
 # URL do repositório do projeto
-url_repositorio = 'https://github.com/DamodaraBarbosa/xbox_gamepass/tree/main/dataprocessing'
+url_repositorio = 'https://github.com/DamodaraBarbosa/xbox_gamepass/'
 
 # Configuração do pacote
 setup(
@@ -28,7 +28,7 @@ setup(
     url=url_repositorio,
     packages=find_packages(),  # Encontra automaticamente todos os pacotes do projeto
     install_requires=[
-        'urllib', 'selenium', 'bs4',
-        'zipfile', 'wget', 'os'
+        'selenium', 'bs4',
+        'zipfile', 'wget'
     ]  # Lista de dependências do pacote 
 )
