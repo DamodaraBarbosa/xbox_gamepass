@@ -29,6 +29,6 @@ setup(
     packages=find_packages(),  # Encontra automaticamente todos os pacotes do projeto
     install_requires=[
         'selenium', 'bs4',
-        'zipfile', 'wget'
+        'wget'
     ]  # Lista de dependências do pacote 
 )
